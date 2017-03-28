@@ -1,5 +1,1 @@
-[plain] view plaincopy
-
-
-#过滤文件夹Debug,Release,obj  
 node_modules/
