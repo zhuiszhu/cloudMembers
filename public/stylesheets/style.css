@@ -1,8 +1,52 @@
+
 body {
-  padding: 50px;
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
 }
+header{
+  margin : 20px auto;
+  width: 900px;
+  height: 50px;
+  font:18px/50px microsoft yahei;
+  color: #666;
+  background: #ffe0b5;
+  text-align: center;
+}
+.login-module{
+  width: 500px;
+  margin:15px auto;
+  padding: 25px;
+  box-sizing: border-box;
+  border:1px dashed #ccc;
+  text-align: right;
+}
 
-a {
-  color: #00B7FF;
+.login-module .form-row{
+  display: flex;
+  padding:10px 0;
+}
+
+.login-module .form-row span{
+  display: block;
+  text-align: right;
+  line-height: 45px;
+  padding-right: 20px;
+  flex: 2
+}
+.login-module .form-row input{
+  display: block;
+  flex: 6;
+  line-height: 45px;
+  padding:0 15px;
+}
+.login-module .login-btn{
+  height: 35px;
+  width: 110px;
+  display: inline-block;
+  border:0 none;
+  background:#04b7f1;
+  color: #fff;
+  line-height: 35px;
+  cursor: pointer;
+  margin-top: 10px;
+  padding:0;
 }
