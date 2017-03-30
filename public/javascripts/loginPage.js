@@ -11,6 +11,7 @@
         userObj.username = usernameDom.find("input").val();
         userObj.password = passwordDom.find("input").val();
 
+        //提交用户信息
         $.ajax({
             url : "/ajax/users/login",
             data : userObj,
