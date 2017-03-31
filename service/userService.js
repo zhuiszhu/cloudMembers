@@ -17,14 +17,36 @@ var userService = {
     register : (req , res) => {//注册请求
         var userObj = req.body;
 
-        if(userObj.username){//用户名不存在
-
+        var sendObj = {
+            aut : false
         }
+        userObj.username = userObj.username.trim();
+
+        //验证数据是否合法
+        if(!testName(userObj.username)){
+            sendObj.txt = "用户名不合法";
+        }else if(!testPwd(userObj.username)){
+            sendObj.txt = "密码不合法";
+        }
+
+        res.json(sendObj);
     }
 };
 
+/**
+ * 验证用户名是否合法(密码为4-20位字母或数字下划线)
+ */
 var testName = name => {
-    
+    var zz = /\w{4,20}/;
+    return zz.test(name);
+}
+
+/**
+ * 验证密码是否合法(不含空格且仅为6-20位数字字母或下划线)
+ */
+var testPwd = pwd => {
+    var zz = /^\S\w{6,20}$/;
+    return zz.test(pwd);
 }
 
 module.exports = userService;
