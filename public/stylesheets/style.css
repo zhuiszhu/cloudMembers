@@ -38,7 +38,7 @@ header{
   line-height: 45px;
   padding:0 15px;
 }
-.login-module .login-btn{
+.login-module .form-btn{
   height: 35px;
   width: 110px;
   display: inline-block;

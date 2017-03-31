@@ -12,4 +12,9 @@ router.get('/login' , (req , res , next) => {
   userService.loginPage(req , res);
 })
 
+//注册页面
+router.get('/register' , (req , res , next) => {
+  userService.registerPage(req , res);
+})
+
 module.exports = router;
