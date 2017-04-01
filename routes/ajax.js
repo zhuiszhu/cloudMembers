@@ -15,4 +15,8 @@ router.post('/users/register' , (req , res , next) => {
   userService.register(req , res);
 })
 
+router.post('/users/findUser' , (req , res , next) => {
+  userService.findUser(req , res);
+})
+
 module.exports = router;

@@ -24,4 +24,17 @@
         })
 
     });
+
+    usernameDom.find("input").on("change" , function(e){
+        var username = $(this).val();
+        //提交用户名
+        $.ajax({
+            url : "/ajax/users/findUser",
+            data : {username : username},
+            type : "post",
+            success : function(data){
+                console.log(data);
+            }
+        })
+    });
 })();

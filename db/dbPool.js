@@ -48,7 +48,7 @@ var dbPool = {
             } else {
                 var users = db.collection("users");
 
-                users.find(data).toArray((err , dbData) => {
+                users.find(data).toArray((err, dbData) => {
                     if (err) {
                         eObj.info = err;
                         event.emit("DB_OOP_ERROR", eObj);
