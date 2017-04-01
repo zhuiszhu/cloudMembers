@@ -1,5 +1,6 @@
 var mClient = require("mongodb").MongoClient;
-const DB_CONN_STR = "mongodb://localhost:27017/webMessage";
+var dbConfig = require("../functions/projectConfig").db;
+const DB_CONN_STR = `mongodb://${dbConfig.connect}:${dbConfig.port}/${dbConfig.dbname}`;
 var event = require("../functions/publicEvent");
 
 var dbPool = {
