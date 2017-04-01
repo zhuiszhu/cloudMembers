@@ -81,7 +81,6 @@ var userService = {
     findUser: (req, res) => {//用户名验证
         event.emit("GET_RES", res);        
         var username = req.body.username;
-        console.log(username);
         var sendObj = {
             aut: false
         };

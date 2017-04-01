@@ -12,6 +12,7 @@ events.on("DB_CONN_ERROR", data => {
     console.log(data);
     sendObj.txt = "服务器错误,请联系管理员";
     res.json(sendObj);
+    res = null;//操作完成清空res对象,方便维护
 });
 
 events.on("DB_OOP_ERROR", data => {
@@ -19,4 +20,5 @@ events.on("DB_OOP_ERROR", data => {
     console.log(data);
     sendObj.txt = "服务器错误,请联系管理员";
     res.json(sendObj);
+    res = null;//操作完成清空res对象,方便维护
 });
