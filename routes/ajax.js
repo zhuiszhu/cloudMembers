@@ -7,8 +7,12 @@ router.get('/', function(req, res, next) {
   res.send('respond with a resource');
 });
 
-router.post('/login' , (req , res , next) => {
+router.post('/users/login' , (req , res , next) => {
   userService.login(req , res);
+})
+
+router.post('/users/register' , (req , res , next) => {
+  userService.register(req , res);
 })
 
 module.exports = router;

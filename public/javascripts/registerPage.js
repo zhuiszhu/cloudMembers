@@ -15,7 +15,7 @@
 
         //提交用户信息
         $.ajax({
-            url : "/ajax/users/login",
+            url : "/ajax/users/register",
             data : userObj,
             type : "post",
             success : function(data){

@@ -17,7 +17,7 @@ var dbPool = {
                 eObj.info = err;
                 event.emit("DB_CONN_ERROR", eObj);
             } else {
-                var users = db.connect("users");
+                var users = db.collection("users");
 
                 users.insert(data, (err, results) => {
                     if (err) {
@@ -46,7 +46,7 @@ var dbPool = {
                 eObj.info = err;
                 event.emit("DB_CONN_ERROR", eObj);
             } else {
-                var users = db.connect("users");
+                var users = db.collection("users");
 
                 users.find(data).toArray((err , dbData) => {
                     if (err) {
