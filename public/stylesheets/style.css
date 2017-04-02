@@ -19,10 +19,11 @@ header{
   border:1px dashed #ccc;
   text-align: right;
 }
-
+.login-module .form-module{
+  padding:10px 0;
+}
 .login-module .form-row{
   display: flex;
-  padding:10px 0;
 }
 
 .login-module .form-row span{
@@ -30,13 +31,15 @@ header{
   text-align: right;
   line-height: 45px;
   padding-right: 20px;
-  flex: 2
+  width: 110px;
 }
 .login-module .form-row input{
   display: block;
   flex: 6;
   line-height: 45px;
   padding:0 15px;
+  border-radius: 5px;
+  border:1px solid #ccc;
 }
 .login-module .form-btn{
   height: 35px;
@@ -49,4 +52,25 @@ header{
   cursor: pointer;
   margin-top: 10px;
   padding:0;
+}
+.login-module .form-module .info:empty{
+  margin-bottom: 0;
+}
+.login-module .form-module .info{
+  line-height: 36px;
+  text-align: left;
+  padding-left: 130px;
+  margin-bottom: -10px;
+}
+.login-module .form-module.suc .info{
+  color: #35cc61;
+}
+.login-module .form-module.suc input{
+  border-color: #35cc61;
+}
+.login-module .form-module.err input{
+  border-color: #c33232;
+}
+.login-module .form-module.err .info{
+  color: #c33232;
 }

@@ -19,6 +19,5 @@ var testPwd = function(pwd){
  */
 var testEmail = function(eml){
     var zz = /^(\w)+(\.\w+)*@(\w)+((\.\w{2,3}){1,3})$/;
-    console.log(eml);
     return zz.test(eml);
 }
