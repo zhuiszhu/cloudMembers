@@ -11,15 +11,10 @@
     //注册提交事件
     loginModule.on("submit" , function(e){
         e.preventDefault();
-        var isAut = true;
         userObj.username = usernameDom.find("input").val();
         userObj.password = passwordDom.find("input").val();
 
-        for(var i in aut){
-            if(!aut[i]){
-                isAut = false;
-            }
-        }
+        var isAut = testAll(loginModule);
 
         if(isAut){
             //提交用户信息

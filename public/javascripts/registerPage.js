@@ -16,13 +16,7 @@
     loginModule.on("submit", function (e) {
         e.preventDefault();
 
-        var isAut = true;
-
-        for (var i in aut) {
-            if (!aut[i]) {
-                isAut = false;
-            }
-        }
+        var isAut = testAll(loginModule);
 
         if (isAut) {
             userObj.username = usernameDom.find("input").val();
