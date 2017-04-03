@@ -1,10 +1,11 @@
 var crypto = require("crypto");
-var md5 = crypto.createHash("md5");
 
 var encry = {
     pwd : pwd => {
+        var md5 = crypto.createHash("md5");
         md5.update(pwd);
-        return md5.digest("hex");
+        var jmTxt = md5.digest("hex");
+        return jmTxt;
     }
 }
 

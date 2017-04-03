@@ -12,7 +12,41 @@ var userService = {
     },
     login: (req, res) => {//登录请求
         event.emit("GET_RES", res);
-        res.json({ code: 2, txt: "恭喜登录成功" });
+        var userObj = req.body;
+        var sendObj = {
+            aut : false
+        }
+        userObj.username = userObj.username.trim();        
+        
+        if(!testName(userObj.username)){//用户名不合法
+            sendObj.txt = "用户名不合法";
+        }else if(!testPwd(userObj.password)){
+            sendObj.txt = "密码不合法";
+        }else{//用户名密码合法,执行进一步操作
+            sendObj.aut = true;
+        }
+        
+        if(!sendObj.aut){//用户名密码不合法不执行查询操作,将提示对象直接返回给前端
+            res.json(sendObj);
+        }else{//用户名密码均合法则执行进一步操作
+            sendObj.aut = false;
+            userObj.password = jm(userObj.password);//加密密码
+
+            event.removeAllListeners("DB_OOP_SUCCESS");
+            event.once("DB_OOP_SUCCESS" , data => {
+                var usr = data.info;
+
+                if(usr.length == 0){//用户名密码不正确
+                    sendObj.txt = "用户名密码不正确,请重新输入";
+                }else{
+                    sendObj.txt = "恭喜您登录成功!"
+                    sendObj.aut = true;
+                }
+                res.json(sendObj);
+            });
+
+            db.find(userObj);
+        }
     },
     registerPage: (req, res) => {//登录页面
         res.render("index", {
