@@ -132,8 +132,8 @@ var testPwd = pwd => {
  * 验证邮箱是否合法
  */
 var testEmail = eml => {
-    var zz = /^(\w)+(\.\w+)*@(\w)+((\.\w{2,3}){1,3})$/;
     console.log(eml);
+    var zz = /^(\w)+(\.\w+)*@(\w)+((\.\w{2,3}){1,3})$/;
     return zz.test(eml);
 }
 

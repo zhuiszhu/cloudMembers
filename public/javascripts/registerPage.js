@@ -27,7 +27,7 @@
         if (isAut) {
             userObj.username = usernameDom.find("input").val();
             userObj.password = passwordDom.find("input").val();
-            userObj.email = passwordDom.find("input").val();
+            userObj.email = emailDom.find("input").val();
 
             //提交用户信息
             $.ajax({
@@ -35,7 +35,13 @@
                 data: userObj,
                 type: "post",
                 success: function (data) {
-                    console.log(data);
+                    if(data.aut){
+                        console.log("注册成功!");
+                        window.location.href = "/users/login";
+                    }else{
+                        console.log(data);
+                    }
+
                 }
             });
         }
