@@ -74,3 +74,123 @@ header{
 .login-module .form-module.err .info{
   color: #c33232;
 }
+.message-panel{
+  width: 800px;
+  margin: 20px auto;
+  display: flex;
+}
+.message-panel .message-function{
+  background: rgba(4,102,204,0.5);
+  box-shadow: 1px 1px 3px rgba(0,0,0,0.75);
+  border-radius: 5px;
+  width: 500px;
+  padding:15px;
+  margin-right: 15px;
+}
+
+.message-panel .message-box{
+  width: 100%;
+  height: 300px;
+  background: #fff;
+  border-radius: 5px;
+  margin-bottom:15px;
+  box-shadow: inset 1px 1px 4px rgba(0,0,0,0.5);
+}
+.message-panel .message-function textarea{
+  width: 100%;
+  resize: none;
+  font:18px/30px microsoft YaHei;
+  color: #666;
+  padding:5px 15px;
+  box-sizing: border-box;
+  border:0 none;
+  border-radius: 5px;
+  box-shadow: inset 1px 1px 4px rgba(0,0,0,0.5);
+}
+
+.message-panel .message-function textarea:focus{
+  outline: none;
+}
+.message-panel .btn-box{
+  margin-top:15px;
+  text-align: right
+}
+.message-panel .btn-box a{
+  display: inline-block;
+  width: 80px;
+  height: 36px;
+  font: 14px/36px microsoft yahei;
+  color: #fff;
+  text-align: center;
+  text-decoration: none;
+  margin-left: 15px;
+  border-radius: 5px;
+}
+.message-panel .btn-box a.clear{
+  background: rgba(255,255,255,0.3);
+}
+.message-panel .btn-box a.send{
+  background: rgba(0,0,0,0.45);
+}
+.message-header{
+  height: 30px;
+  margin-bottom:8px;
+}
+.message-header h2{
+  font:16px/30px microsoft yahei;
+  color: #fff;
+  padding-left: 8px;
+}
+
+.message-panel .message-friends{
+  background: rgba(4,102,204,0.5);
+  box-shadow: 1px 1px 3px rgba(0,0,0,0.75);
+  padding:15px;
+  border-radius: 5px;
+  flex: 1;
+}
+.message-panel .message-friends .user-box{
+  width: 100%;
+  padding:20px 0;
+  border:3px dashed #fff;
+  border-radius: 5px;
+}
+.message-panel .message-friends .user-box h2{
+  text-align: center;
+  color: #fbfa02;
+}
+
+.message-panel .message-friends .friend-box{
+  margin-top: 15px;
+  background: rgba(255,255,255,0.4);
+  height: 422px;
+  border-radius: 5px;  
+}
+.message-panel .message-friends .friend-box li{
+  height: 40px;
+  border-bottom:1px solid rgba(0,0,0,0.2); 
+  border-top:1px solid rgba(255,255,255,0.7); 
+  padding:0 15px;
+}
+.message-panel .message-friends .friend-box li a{
+  display: block;
+  font: 16px/40px microsoft yahei;
+  color: #fff;
+  text-shadow: 1px 1px 2px rgba(0,0,0,0.2);
+}
+.message-panel .message-friends .friend-box li:first-of-type{
+  border-top: 0 none;
+}
+.message-panel .message-friends .friend-box li:last-of-type{
+  position: relative;
+}
+.message-panel .message-friends .friend-box li:last-of-type:after{
+  content: "";
+  display: block;
+  position: absolute;
+  bottom: -2px;
+  left: 0;
+  width: 100%;
+  border-top:1px solid rgba(255,255,255,0.7);   
+  z-index: 2;
+}

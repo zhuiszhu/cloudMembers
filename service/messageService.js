@@ -7,7 +7,23 @@ var messageService = {
         if (req.session.userObj) {
             res.render("index", {
                 page: "messagePage",
-                title: "聊天室"
+                title: "聊天室",
+                username : req.session.userObj[0].username,
+                friends : [
+                    {
+                        username : "abc123",
+                        id : "123"
+                    },
+                    {
+                        username : "aaa123",
+                        id : "12"
+                    },
+                    {
+                        username : "aaa",
+                        id : "1"
+                    },
+                ],
+                friendName : null
             });
         } else {
             res.redirect("/users/login");
