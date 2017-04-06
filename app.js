@@ -3,11 +3,13 @@ var path = require('path');
 var favicon = require('serve-favicon');
 var logger = require('morgan');
 var cookieParser = require('cookie-parser');
+var session = require("express-session");
 var bodyParser = require('body-parser');
 
 var index = require('./routes/index');
 var users = require('./routes/users');
 var ajax = require('./routes/ajax');
+var message = require('./routes/message');
 
 var app = express();
 
@@ -21,11 +23,19 @@ app.use(logger('dev'));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
+app.use(session({
+  secret : '123456',
+  name : "testapp",
+  cookie : {maxAge : 80000},
+  resave : false,
+  saveUninitialized : true
+}));
 app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', index);
 app.use('/users', users);
 app.use("/ajax", ajax);
+app.use("/message",message);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
@@ -33,6 +43,7 @@ app.use(function(req, res, next) {
   err.status = 404;
   next(err);
 });
+
 
 // error handler
 app.use(function(err, req, res, next) {

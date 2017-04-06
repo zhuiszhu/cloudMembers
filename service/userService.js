@@ -1,5 +1,4 @@
 var db = require("../db/dbPool");
-var dbCon = require("../functions/projectConfig").db;
 var event = require("../functions/publicEvent");
 var jm = require("../functions/ecryption").pwd;
 
@@ -41,6 +40,7 @@ var userService = {
                 }else{
                     sendObj.txt = "恭喜您登录成功!"
                     sendObj.aut = true;
+                    req.session.userObj = usr;
                 }
                 res.json(sendObj);
             });
