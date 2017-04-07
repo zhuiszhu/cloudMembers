@@ -5,7 +5,10 @@ $(function(){
         code : 200
     };
     var userBox = $("#friendBox");
+    var messageFun = $("#messageFunction");
+    var sendObj = null;
     var userItem = $('<li><a href="javascript:;"></a></li>');
+    var userId = $("#userBox").attr("data-user");
     ws.onopen = function(event){
         var sktStr = JSON.stringify(sktObj);
         ws.send(sktStr);
@@ -25,16 +28,28 @@ $(function(){
 
     }
 
+    //好友列表点击事件委托
+    userBox.on("click","li" , function(e){
+        var liItem = $(this);
+        sendObj = {
+            id : liItem.attr("data-id"),
+            username : liItem.find("a").text()
+        }
+        messageFun.find("h2").text(sendObj.username);
+    })
+
     function updateUserList(userList){
         userBox.empty();
         for(var i in userList){
-        console.log(123);
-            var item = userItem.clone(false);
 
-            item.attr("data-id" , userList[i]._id);
-            item.find("a").text(userList[i].username);
+            if(userList[i]._id != userId){
+                var item = userItem.clone(false);
 
-            userBox.append(item);
+                item.attr("data-id" , userList[i]._id);
+                item.find("a").text(userList[i].username);
+
+                userBox.append(item);
+            }
         }
     }
 

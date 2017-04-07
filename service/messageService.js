@@ -11,6 +11,7 @@ var messageService = {
                 page: "messagePage",
                 title: "聊天室",
                 username : req.session.userObj[0].username,
+                userID : req.session.userObj[0]._id,
                 friends : [
                     {
                         username : "abc123",

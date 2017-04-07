@@ -9,7 +9,7 @@ socket.on("connection", client => {
     if (userObj) {//用户session存在,即用户登录过,允许连接
         delete userObj.password;
         delete userObj.friends;
-        
+
         client.userObj = userObj;
         clientMap[userObj._id] = client;
         userObj = null;
