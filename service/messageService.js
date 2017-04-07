@@ -1,10 +1,12 @@
 var db = require("../db/dbPool");
 var event = require("../functions/publicEvent");
+var getSocketUser = require("../service/socketService");
 
 var messageService = {
     messagePage: (req, res) => {//信息页面
-        console.log(req.session.userObj);
         if (req.session.userObj) {
+            //向socket服务器传送session用户信息
+            getSocketUser(req.session.userObj[0]);
             res.render("index", {
                 page: "messagePage",
                 title: "聊天室",
@@ -22,8 +24,7 @@ var messageService = {
                         username : "aaa",
                         id : "1"
                     },
-                ],
-                friendName : null
+                ]
             });
         } else {
             res.redirect("/users/login");

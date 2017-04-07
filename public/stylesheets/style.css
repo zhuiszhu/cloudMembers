@@ -95,6 +95,7 @@ header{
   border-radius: 5px;
   margin-bottom:15px;
   box-shadow: inset 1px 1px 4px rgba(0,0,0,0.5);
+  overflow-y: auto;
 }
 .message-panel .message-function textarea{
   width: 100%;
@@ -165,18 +166,24 @@ header{
   background: rgba(255,255,255,0.4);
   height: 422px;
   border-radius: 5px;  
+  overflow-y: auto;
+  overflow-x: hidden;
 }
 .message-panel .message-friends .friend-box li{
   height: 40px;
   border-bottom:1px solid rgba(0,0,0,0.2); 
   border-top:1px solid rgba(255,255,255,0.7); 
   padding:0 15px;
+  transition: all 0.35s;
+}
+.message-panel .message-friends .friend-box li:hover{
+  background: rgba(0,200,255,0.4);
 }
 .message-panel .message-friends .friend-box li a{
   display: block;
   font: 16px/40px microsoft yahei;
   color: #fff;
-  text-shadow: 1px 1px 2px rgba(0,0,0,0.2);
+  text-shadow: 1px 0px 2px rgba(0,0,0,0.2);
 }
 .message-panel .message-friends .friend-box li:first-of-type{
   border-top: 0 none;

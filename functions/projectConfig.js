@@ -7,6 +7,10 @@ var conObj = {
         connect : "localhost",
         port : 27017,
         dbname : "webMessage"
+    },
+    socket : {
+        connect : "localhost",
+        port : 8000
     }
 }
 
