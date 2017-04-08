@@ -94,9 +94,39 @@ header{
   background: #fff;
   border-radius: 5px;
   margin-bottom:15px;
+  padding:15px;
+  box-sizing: border-box;
   box-shadow: inset 1px 1px 4px rgba(0,0,0,0.5);
   overflow-y: auto;
 }
+.message-panel .message-box p{
+  margin:10px 0;
+}
+.message-panel .message-box p:after{
+  content: "";
+  display: block;
+  clear: both;
+}
+.message-panel .message-box p.isMe{
+  text-align: right;
+}
+.message-panel .message-box p.isMe .sender{
+  color: #34d8a7;
+  float: right;
+}
+.message-panel .message-box p.isMe .message{
+  float: right;
+  text-align: left;
+}
+.message-panel .message-box .sender{
+  color: #4d9cef;
+}
+.message-panel .message-box .message{
+  word-break: break-all;
+  margin:0 15px;
+  color: #666;
+}
+
 .message-panel .message-function textarea{
   width: 100%;
   resize: none;
@@ -185,6 +215,9 @@ header{
   color: #fff;
   text-shadow: 1px 0px 2px rgba(0,0,0,0.2);
 }
+.message-panel .message-friends .friend-box li.active a{
+  animation: active 1s infinite;
+}
 .message-panel .message-friends .friend-box li:first-of-type{
   border-top: 0 none;
 }
@@ -200,4 +233,19 @@ header{
   width: 100%;
   border-top:1px solid rgba(255,255,255,0.7);   
   z-index: 2;
+}
+
+@keyframes active{
+  0%{
+    color: #fff;
+  }
+  50%{
+    color: #fff;
+  }
+  51%{
+    color: #fbfa02;
+  }
+  100%{
+    color: #fbfa02;
+  }
 }

@@ -18,6 +18,15 @@ socket.on("connection", client => {
 
         client.on("message", data => {
             // console.log(data);
+            var dataObj = JSON.parse(data);
+
+            switch(dataObj.type){
+                case "MESSAGE":
+                    if(dataObj.sendObj.id){//拥有目标才能进行数据转发
+                        sendMessage(dataObj.sendObj.id , dataObj.content , client.userObj._id);
+                    }
+                    break;
+            }
         });
 
         client.on("close", () => {
@@ -78,4 +87,19 @@ var sendUserList = () => {
     }
 
     emitAll(JSON.stringify(message));
+}
+/**
+ * 发送信息给指定的用户
+ * @param {string} aimsID :信息接收者id
+ * @param {string} message : 要发送的消息
+ * @param {string} sendID : 发送者id
+ */
+var sendMessage = (aimsID , message , sendID) => {
+    var sendObj = {
+        type : "MESSAGE",
+        content : message,
+        sendID : sendID
+    }
+
+    clientMap[aimsID].send(JSON.stringify(sendObj));
 }
