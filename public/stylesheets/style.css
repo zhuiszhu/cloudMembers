@@ -120,11 +120,14 @@ header{
 }
 .message-panel .message-box .sender{
   color: #4d9cef;
+  float: left;
 }
 .message-panel .message-box .message{
   word-break: break-all;
   margin:0 15px;
   color: #666;
+  display: inline-block;
+  max-width: 310px;
 }
 
 .message-panel .message-function textarea{
